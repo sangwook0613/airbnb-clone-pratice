@@ -40,7 +40,9 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
+    "core.apps.CoreConfig",
     "users.apps.UsersConfig",
+    "rooms.apps.RoomsConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
@@ -120,4 +122,3 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 AUTH_USER_MODEL = "users.User"
-
