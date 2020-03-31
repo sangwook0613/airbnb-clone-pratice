@@ -7,6 +7,11 @@ class ItemAdmin(admin.ModelAdmin):
 
     """ Item Admin Definition """
 
+    list_display = ("name", "used_by")
+
+    def used_by(self, obj):
+        return obj.rooms.count()
+
     pass
 
 
