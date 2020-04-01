@@ -24,3 +24,16 @@ class Review(core_models.TimeStampedModel):
         return f"{self.review} - {self.room}"
         # return self.room.name #ForeignKey 덕분에 Room의 model에 접근가능!
         # return self.room.host.username 도 가능!!
+
+    def rating_average(self):
+        avg = (
+            self.accuracy
+            + self.communication
+            + self.cleaniness
+            + self.location
+            + self.check_in
+            + self.value
+        ) / 6
+        return round(avg, 2)
+
+    rating_average.short_description = "AVG"
