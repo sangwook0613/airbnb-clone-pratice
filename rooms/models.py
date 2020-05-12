@@ -1,4 +1,5 @@
 from django.db import models  # 먼저 장고를 받고
+from django.urls import reverse  # 요거는 url을 위한거(새롭게 추가됨 #12)
 from django_countries.fields import CountryField  # 그 다음 외부패키지
 from core import models as core_models  # 마지막으로 내가 만든 패키지
 
@@ -94,6 +95,9 @@ class Room(core_models.TimeStampedModel):
     def save(self, *args, **kwargs):
         self.city = str.capitalize(self.city)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("rooms:detail", kwargs={"pk": self.pk})
 
     def total_rating(self):
         all_reviews = self.reviews.all()
