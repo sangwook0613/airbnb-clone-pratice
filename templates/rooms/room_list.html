@@ -10,7 +10,12 @@
     {{now}}
 
     {% for room in rooms %}
-        <h1>{{room.name}} / ${{room.price}}</h1>
+        <h3>
+            <a href="{% url "rooms:detail" room.pk %}"> 
+            <!-- url 뒤에 config에서 url의 namespace 그 다음 그 path로 통해서 들어간 url의 name로 타고 들어감 그 후에는 agruments를 입력-->
+                {{room.name}} / ${{room.price}}
+            </a>
+        </h3>
     {% endfor %}
 
     <h5>
