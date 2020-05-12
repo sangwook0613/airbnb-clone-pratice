@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.http import Http404
 from django.shortcuts import render
 from . import models
@@ -15,10 +15,8 @@ class HomeView(ListView):
     context_object_name = "rooms"
 
 
-def room_detail(request, pk):
-    try:
-        room = models.Room.objects.get(pk=pk)
-        return render(request, "rooms/detail.html", {"room": room})
-    except models.Room.DoesNotExist:
-        raise Http404()  # 여기서 return이 아니라 raise다! 에러를 띄운다고 생각하자
-        # 이것만 써도 장고는 404 html 파일을 render할 것(만약 있다면)
+class RoomDetail(DetailView):
+
+    """ RoomDetail Definition """
+
+    model = models.Room
