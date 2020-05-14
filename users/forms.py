@@ -15,7 +15,7 @@ class LoginForm(forms.Form):
         try:
             user = models.User.objects.get(email=email)
             if user.check_password(password):
-                return self.cleaned_data
+                return self.cleaned_data  # clean으로 통해서 쓸때 항상 cleaned_data를 return해야된다.
             else:
                 self.add_error("password", forms.ValidationError("Password is wrong"))
         except models.User.DoesNotExist:
