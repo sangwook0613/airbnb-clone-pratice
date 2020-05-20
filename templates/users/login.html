@@ -15,8 +15,8 @@
 
         <form method="POST" action="{% url "users:login" %}" class="w-full">
             {% csrf_token %}
-            <input type="email" placeholder="Email" class="mb-2"></input>
-            <input type="password" placeholder="Password" class="mb-2"></input>
+            {{form.email}}
+            {{form.password}}
             <button class="btn bg-red-500 text-white">Login</button>
         </form>
 
