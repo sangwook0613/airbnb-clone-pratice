@@ -13,12 +13,7 @@
     <div class="container xl:w-1/4 lg:w-5/12 md:w-1/2 mx-auto my-10 flex flex-col items-center border p-6 border-gray-400">
         {% include 'partials/social_login.html' %}
 
-        <form method="POST" action="{% url "users:login" %}" class="w-full">
-            {% csrf_token %}
-            {{form.email}}
-            {{form.password}}
-            <button class="btn bg-red-500 text-white">Login</button>
-        </form>
+        {% include 'mixins/auth/auth_form.html' with form=form cta="Login"%}
 
         <div class="mt-4">
             <span class="mr-3">Don't have an account?</span>
