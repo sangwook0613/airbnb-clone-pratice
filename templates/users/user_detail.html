@@ -5,7 +5,7 @@
 {% endblock page_title %}
 
 {% block content %}
-    <div class="h-75vh">
+    <div class="min-h-75vh">
         <div class="container xl:w-1/4 lg:w-5/12 md:w-1/2 mx-auto my-10 flex flex-col items-center border p-6 border-gray-400">
 
             {% include "mixins/user_avatar.html" with user=user_obj %}
@@ -21,7 +21,7 @@
     
             
             {% if user == user_obj %}
-                <a href="#" class="btn-link">Edit Profile</a>
+                <a href="{% url 'users:update' %}" class="btn-link">Edit Profile</a>
             {% endif %}
     
     
@@ -30,7 +30,7 @@
         {% if user_obj.rooms.count > 0 %}
             <!-- 원래는 include room_card.html을 이용 but 사진 크기 조절을 위해서 room_card.html을 복붙해서 조절-->
             <div class="container mx-auto pb-10 flex flex-col items-center">
-                <h3 class="mb-12 text-xl">{{user_obj.first_name}}'s Rooms</h3>
+                <h3 class="mb-12 text-xl text-center">{{user_obj.first_name}}'s Rooms</h3>
                 <div class="flex flex-wrap -mx-16 mb-10">
                     {% for room in user_obj.rooms.all %}
                         <div class="w-1/4 mb-10 px-2 overflow-hidden">
