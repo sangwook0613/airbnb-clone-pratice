@@ -56,17 +56,19 @@ class Reservation(core_models.TimeStampedModel):
     is_finished.boolean = True
 
     def save(self, *args, **kwargs):
-        if True:
+        if self.pk is None:  # 우리가 만드려는 모델이 새거라는 것
             start = self.check_in
             end = self.check_out
             difference = end - start
             existing_booked_day = BookedDay.objects.filter(
-                day__range=(start, end)
+                day__range=(start, end)  # range를 이용해서 필터링하는 법
             ).exists()
             if not existing_booked_day:
                 super().save(*args, **kwargs)
-                for date in range(differenc + 1):
-                    day = start + datetime.timedelta(day=1)
-                    BookedDay.objects.create(day=day, reservation=self)
-
+                for i in range(difference.days + 1):
+                    day = start + datetime.timedelta(days=i)
+                    BookedDay.objects.create(
+                        day=day, reservation=self
+                    )  # BookedDay 생성 for문 돌면서
+                return
         return super().save(*args, **kwargs)
