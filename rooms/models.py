@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models  # 먼저 장고를 받고
 from django.urls import reverse  # 요거는 url을 위한거(새롭게 추가됨 #12)
 from django_countries.fields import CountryField  # 그 다음 외부패키지
@@ -121,6 +122,14 @@ class Room(core_models.TimeStampedModel):
         return photos
 
     def get_calendars(self):
-        this_month = Calendar(2020, 5)
-        next_month = Calendar(2020, 6)
-        return [this_month, next_month]
+        now = timezone.now()
+        this_year = now.year
+        next_year = this_year
+        this_month = now.month
+        next_month = this_month + 1
+        if this_month == 12:
+            next_month = 1
+            next_year = this_year + 1
+        this_month_cal = Calendar(this_year, this_month)
+        next_month_cal = Calendar(next_year, next_month)
+        return [this_month_cal, next_month_cal]
