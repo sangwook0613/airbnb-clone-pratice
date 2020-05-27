@@ -37,3 +37,6 @@ class Review(core_models.TimeStampedModel):
         return round(avg, 2)
 
     rating_average.short_description = "AVG"
+
+    class Meta:
+        ordering = ("-created",)
