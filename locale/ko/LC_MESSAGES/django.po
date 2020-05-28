@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-28 16:58+0900\n"
+"POT-Creation-Date: 2020-05-28 21:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,42 @@ msgstr "무단 복제를 금합니다"
 #: .\templates\partials\footer.html:7
 msgid "All rights reserved"
 msgstr "저작권법의 보호를 받고 있습니다"
+
+#: .\templates\partials\nav.html:8
+msgid "Stop hosting"
+msgstr "호스팅 중단"
+
+#: .\templates\partials\nav.html:10
+msgid "Start hosting"
+msgstr "호스팅"
+
+#: .\templates\partials\nav.html:15
+msgid "Create Room"
+msgstr "방 만들기"
+
+#: .\templates\partials\nav.html:17
+msgid "Profile"
+msgstr "프로필"
+
+#: .\templates\partials\nav.html:18
+msgid "Log out"
+msgstr "로그아웃"
+
+#: .\templates\partials\nav.html:20
+msgid "Login"
+msgstr "로그인"
+
+#: .\templates\partials\nav.html:21
+msgid "Sign up"
+msgstr "가입하기"
+
+#: .\templates\rooms\room_detail.html:33
+msgid "Remove from Favorites"
+msgstr "즐겨찾기에서 제거"
+
+#: .\templates\rooms\room_detail.html:35
+msgid "Save to Favorites"
+msgstr "즐겨찾기에 저장"
 
 #: .\templates\rooms\room_list.html:27
 #, python-format
